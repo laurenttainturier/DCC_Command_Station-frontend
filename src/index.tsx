@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import {Redirect, Route, Switch} from "react-router";
+import {BrowserRouter as Router} from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import './index.css';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const Home = lazy(() => import('./routes/Home'));
+const About = lazy(() => import('./routes/About'));
+
+ReactDOM.render(
+    <Router>
+        <Suspense fallback={<div>Loading...</div>}>
+            <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route path="/about" component={About}/>
+                <Route path="/fleet" component={About}/>
+                <Route path="/railway" component={About}/>
+                <Redirect to='/'/>
+            </Switch>
+        </Suspense>
+    </Router>,
+    document.getElementById('root'));
+
+serviceWorker.register();
