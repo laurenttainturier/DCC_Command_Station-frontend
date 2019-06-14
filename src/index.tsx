@@ -13,10 +13,11 @@ ReactDOM.render(
     <Router>
         <Suspense fallback={<div>Loading...</div>}>
             <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route path="/about" component={About}/>
-                <Route path="/fleet" component={About}/>
+                <Route exact path="/itinerary" component={Home}/>
                 <Route path="/railway" component={About}/>
+                <Route path="/station" component={About}/>
+                <Route path="/train" component={About}/>
+                <Route path="/settings" component={About}/>
                 <Redirect to='/'/>
             </Switch>
         </Suspense>

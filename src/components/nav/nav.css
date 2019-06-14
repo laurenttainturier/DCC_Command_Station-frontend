@@ -1,0 +1,39 @@
+body {
+    height: 2000px;
+}
+
+.Nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+
+    bottom: 0;
+    width: 100%;
+    height: 11%;
+    background-color: purple;
+}
+
+.NavElement {
+    flex-basis: 100%;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.text {
+    margin: 0 auto;
+}
+
+.icon {
+    fill: white;
+}
+
+.NavElement .icon {
+    width: 6vh;
+    margin-top: 1vh;
+}
+
+.active > * {
+    color: aqua;
+    fill: aqua;
+}
